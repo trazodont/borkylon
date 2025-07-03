@@ -101,6 +101,45 @@
 	return
 
 
+
+/datum/chemical_reaction/fermi/SDGF
+	name = "Synthetic-derived growth factor"
+	id = /datum/reagent/fermi/SDGF
+	results = list(/datum/reagent/fermi/SDGF = 3)
+	required_reagents = list(/datum/reagent/stable_plasma = 1.5, /datum/reagent/medicine/clonexadone = 1.5, /datum/reagent/uranium = 1.5, /datum/reagent/medicine/synthflesh = 1.5)
+	mix_message = "the reaction gives off a blorble!"
+	required_temp = 1
+	//FermiChem vars:
+	OptimalTempMin 		= 600 		// Lower area of bell curve for determining heat based rate reactions
+	OptimalTempMax 		= 630 		// Upper end for above
+	ExplodeTemp 		= 635 		// Temperature at which reaction explodes
+	OptimalpHMin 		= 3 		// Lowest value of pH determining pH a 1 value for pH based rate reactions (Plateu phase)
+	OptimalpHMax 		= 3.5 		// Higest value for above
+	ReactpHLim 			= 2 		// How far out pH wil react, giving impurity place (Exponential phase)
+	CatalystFact 		= 0 		// How much the catalyst affects the reaction (0 = no catalyst)
+	CurveSharpT 		= 4 		// How sharp the temperature exponential curve is (to the power of value)
+	CurveSharppH 		= 4 		// How sharp the pH exponential curve is (to the power of value)
+	ThermicConstant		= -10 		// Temperature change per 1u produced
+	HIonRelease 		= 0.02 		// pH change per 1u reaction (inverse for some reason)
+	RateUpLim 			= 1 		// Optimal/max rate possible if all conditions are perfect
+	FermiChem 			= TRUE		// If the chemical uses the Fermichem reaction mechanics
+	FermiExplode 		= TRUE		// If the chemical explodes in a special way
+	PurityMin 			= 0.2
+
+/datum/chemical_reaction/fermi/SDGF/FermiExplode(datum/reagents, atom/my_atom, volume, temp, pH)//Spawns an angery teratoma!
+	var/turf/T = get_turf(my_atom)
+	var/amount_to_spawn = round((volume/100), 1)
+	if(amount_to_spawn <= 0)
+		amount_to_spawn = 1
+	for(var/i in 1 to amount_to_spawn)
+		var/mob/living/simple_animal/slime/S = new(T,"pyrite")
+		S.damage_coeff = list(BRUTE = 0.9 , BURN = 2, TOX = 1, CLONE = 1, STAMINA = 0, OXY = 1)
+		S.name = "Living teratoma"
+		S.real_name = "Living teratoma"
+		S.rabid = 1//Make them an angery boi
+		S.color = "#810010"
+	my_atom.reagents.clear_reagents()
+	my_atom.visible_message("<span class='warning'>An horrifying tumoural mass forms in [my_atom]!</span>")
 /*
 /datum/chemical_reaction/fermi/astral
 	name = "Astrogen"

@@ -409,6 +409,16 @@
 /mob/living/verb/succumb()
 	set name = "Succumb"
 	set category = "IC"
+	if(src.has_status_effect(/datum/status_effect/chem/enthrall))
+		var/datum/status_effect/chem/enthrall/E = src.has_status_effect(/datum/status_effect/chem/enthrall)
+		if(E.phase < 3)
+			if(HAS_TRAIT(src, TRAIT_MINDSHIELD))
+				to_chat(src, "<span class='notice'>Your mindshield prevents your mind from giving in!</span>")
+			else if(src.mind.assigned_role in GLOB.command_positions)
+				to_chat(src, "<span class='notice'>Your dedication to your department prevents you from giving in!</span>")
+			else
+				E.enthrallTally += 20
+				to_chat(src, "<span class='notice'>You give into [E.master]'s influence.</span>")
 	if (InCritical())
 		log_message("Has succumbed to death while in [InFullCritical() ? "hard":"soft"] critical with [round(health, 0.1)] points of health!", LOG_ATTACK)
 		adjustOxyLoss(health - HEALTH_THRESHOLD_DEAD)
@@ -1327,7 +1337,7 @@
 	return ..() && CHECK_MOBILITY(src, MOBILITY_MOVE)
 
 /mob/living/proc/set_gender(ngender = NEUTER, silent = FALSE, update_icon = TRUE, forced = FALSE)
-	if(forced || (!ckey || client?.prefs.cit_toggles & (ngender == FEMALE)))
+	if(forced || (!ckey || client?.prefs.cit_toggles & (ngender == FEMALE ? FORCED_FEM : FORCED_MASC)))
 		gender = ngender
 		return TRUE
 	return FALSE

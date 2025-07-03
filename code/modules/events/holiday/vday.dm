@@ -109,6 +109,9 @@
 /obj/item/reagent_containers/food/snacks/candyheart/New()
 	..()
 	desc = pick("A heart-shaped candy that reads: HONK ME",
+				"A heart-shaped candy that reads: ERP",
+				"A heart-shaped candy that reads: LEWD",
+				"A heart-shaped candy that reads: LUSTY",
 				"A heart-shaped candy that reads: SPESS LOVE",
 				"A heart-shaped candy that reads: AYY LMAO",
 				"A heart-shaped candy that reads: TABLE ME",
@@ -123,5 +126,7 @@
 				"A heart-shaped candy that reads: FACEHUGGER",
 				"A heart-shaped candy that reads: BOX OF HUGS",
 				"A heart-shaped candy that reads: REEBE MINE",
-				"A heart-shaped candy that reads: PET ME",)
+				"A heart-shaped candy that reads: PET ME",
+				"A heart-shaped candy that reads: TO THE DORMS",
+				"A heart-shaped candy that reads: DIS MEMBER")
 	icon_state = pick("candyheart", "candyheart2", "candyheart3", "candyheart4")

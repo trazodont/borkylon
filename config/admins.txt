@@ -8,5 +8,14 @@
 # NOTE: syntax was changed to allow hyphenation of ranknames, since spaces are stripped.      #
 ###############################################################################################
 
-trazodont = Host
-klushy225 = Admin
+derflammenwerfer = Host
+roachwitharoach = Head Administrator
+zerantio = Head Administrator
+spartan2548 = Head Administrator
+ThyBaron = Head Administrator
+jeckieboy = Administrator
+tzula = Administrator
+duckymomo = Administrator
+oprime = Coder
+k4rl = Coder
+OyVey = Coder
