@@ -200,6 +200,7 @@
 				H.gain_trauma(cloned_trauma, BT.resilience)
 
 		H.set_cloned_appearance()
+		H.give_genitals(TRUE)
 
 		H.suiciding = FALSE
 	attempting = FALSE
