@@ -227,7 +227,7 @@ GLOBAL_LIST_EMPTY(family_heirlooms)
 	value = 0 // Locked
 	gain_text = span_notice("You feel a burning pain as your DNA is ripped apart, and sewn back together.")
 	lose_text = span_notice("The dull metronome of pain that defined your existence has faded.")
-	medical_record_text = "Patient appears to have 'perfect' DNA - if 'perfect' was a Wastelanders idea of beauty." 
+	medical_record_text = "Patient appears to have 'perfect' DNA - if 'perfect' was a Wastelanders idea of beauty."
 	mob_trait = TRAIT_FEV
 	locked = TRUE
 
@@ -257,7 +257,7 @@ GLOBAL_LIST_EMPTY(family_heirlooms)
 	mob_tar.maxHealth -= 5 //Mutie rage.
 	mob_tar.health -= 5
 	mob_tar.dna.species.punchdamagelow -= 6
-	mob_tar.dna.species.punchdamagehigh -= 8 
+	mob_tar.dna.species.punchdamagehigh -= 8
 	mob_tar.resize -= 0.05
 	mob_tar.update_transform()
 
@@ -267,7 +267,7 @@ GLOBAL_LIST_EMPTY(family_heirlooms)
 	value = 0 //Never unlockable naturally.
 	gain_text = span_notice("You feel a burning pain as your DNA is ripped apart, and sewn back together.")
 	lose_text = span_notice("The dull metronome of pain that defined your existence has faded.")
-	medical_record_text = "Patient has been exposed to FEV-II, with clear signs of triple-helix DNA present." 
+	medical_record_text = "Patient has been exposed to FEV-II, with clear signs of triple-helix DNA present."
 	mob_trait = TRAIT_FEVII
 	locked = TRUE
 
@@ -377,15 +377,6 @@ GLOBAL_LIST_EMPTY(family_heirlooms)
 	if(quirk_holder)
 		quirk_holder.remove_client_colour(/datum/client_colour/monochrome)
 
-/*
-/datum/quirk/maso
-	name = "Masochism"
-	desc = "You are aroused by pain."
-	value = 0
-	mob_trait = TRAIT_MASO
-	gain_text = "<span class='notice'>You desire to be hurt.</span>"
-	lose_text = "<span class='notice'>Pain has become less exciting for you.</span>"
-*/
 
 /datum/quirk/alcohol_intolerance
 	name = "Alcohol Intolerance"
